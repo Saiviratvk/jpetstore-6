@@ -25,15 +25,15 @@ pipeline{
                 script{
                     withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
                         sh "docker build -t petshop ."
-                        sh "docker tag petshop anji103/petshop:latest"
-                        sh "docker push anji103/petshop:latest"
+                        sh "docker tag petshop chsaikrishna/petshop:latest"
+                        sh "docker push chsaikrishna/petshop:latest"
                    }
                 }
             }
         }
                 stage ('Deploy to container'){
             steps{
-                sh 'docker run -d --name pet1 -p 8080:8080 anji103/petshop:latest'
+                sh 'docker run -d --name pet22 -p 8081:8080 chsaikrishna/petshop:latest'
             }
         }
         }
